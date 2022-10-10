@@ -1,15 +1,32 @@
 import random
 
-
 class Coin:
     def __init__(self):
         self.side = None
 
-    def flip(self) -> None:
+    def flip(self):
         """
         Подбрасывание монетки. # heads-орел/tails-решка
         """
-        self.side = ...  # random: heads/tails
+        self.side = random.choice([1, 0])  # random: heads/tails
+
+
+n = int(input('Введите колличество ,бросков  '))
+coins = []
+heads = 0
+tails = 0
+
+for i in range(n):
+    coins.append(Coin())
+for coin in coins:
+    coin.flip()
+    if coin.side == 1:
+        heads += 1
+    else:
+        tails += 1
+
+print('heads = ', heads, '-', heads/n*100, '%')
+print('tails = ', tails, '-', tails/n*100, '%')
 
 # Задание:
 # 1. Создайте список из n-монеток, n - вводится с клавиатуры
